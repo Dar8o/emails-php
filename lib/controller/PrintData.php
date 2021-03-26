@@ -13,12 +13,17 @@ class PrintData {
     foreach($query->read() as $email_data) {
       $date = date_create($email_data['email_date']);
       $date_format = date_format($date, 'd.m.y - H:i'); 
+
+      $subject = explode(' ', $email_data['email_subject']);
+      $extract_id = count($subject) - 1;
+      $id_in_subject = $subject[$extract_id];
+
       $email_format = explode('@', $email_data['email_from']);
       
       print_r('
         <tr>
           <td>' . $date_format . '</td>
-          <td>' . $email_data['email_subject'] . '</td>
+          <td>' . $id_in_subject . '</td>
           <td>' . $email_format[0] . '</td>
           <td>' . $email_data['text_plain'] . '</td>
           <td>

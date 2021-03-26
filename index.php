@@ -20,21 +20,38 @@ $print = new PrintData();
 </head>
 
 <body>
-  
+
   <main>
-    <div class='container'>
+    <div class="container">
+      <table class="width-70">
+        <thead>
+          <tr>
+            <th><p>+4792093912<span class="green">&nbsp;(Online)</span></p> 
+            <th><p>-
+            <th><p>+4792093201<span class="green">&nbsp;(Online)</span></p>
+            <th><p>-
+            <th><p>+4792093837<span class="green">&nbsp;(Online)</span></p>
+            <th><p>-
+            <th><p>+4792093654</span><span class="green">&nbsp;(Online)</span></p>
+            <th><p>-
+            <th><p>+4792093571<span class="green">&nbsp;(Online)</span></p> 
+        </thead>
+      </table>
+
       <table>
         <thead>
           <tr>
             <th>Date & Time</th>
             <th>Receiver ID</th>
-            <th>From</th>
+            <th>Sender ID</th>
             <th>Message</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
+
           <?php  $print->print_all(); ?>
+
         </tbody>
       </table>
     </div>
