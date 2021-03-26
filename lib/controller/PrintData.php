@@ -11,11 +11,13 @@ class PrintData {
   public function print_all() {
     $query = new Queries();
     foreach($query->read() as $email_data) {
+      $date = date_create($email_data['email_date']);
+      $date_format = date_format($date, 'd.m.y - H:i'); 
       $email_format = explode('@', $email_data['email_from']);
       
       print_r('
         <tr>
-          <td>' . $email_data['email_date'] . '</td>
+          <td>' . $date_format . '</td>
           <td>' . $email_data['email_subject'] . '</td>
           <td>' . $email_format[0] . '</td>
           <td>' . $email_data['text_plain'] . '</td>
