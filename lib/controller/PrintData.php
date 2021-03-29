@@ -8,11 +8,15 @@ require './lib/model/Queries.php';
 use lib\model\Queries;
 
 class PrintData {
+  private $limit_row = 2;
+  private $index_row = 0;
+
   public function print_all() {
     $query = new Queries();
-    foreach($query->read() as $email_data) {
-      $date = date_create($email_data['email_date']);
-      $date_format = date_format($date, 'd.m.y - H:i'); 
+    
+    foreach($query->read_by_range($this->limit_row, $this->index_row) as $email_data) {
+      $original_date = date_create($email_data['email_date']);
+      $date_format = date_format($original_date, "d.m.y - H:i");
 
       $subject = explode(' ', $email_data['email_subject']);
       $extract_id = count($subject) - 1;
@@ -35,5 +39,9 @@ class PrintData {
         </tr>
       ');
     }
+  }
+
+  public function print_pagination() {
+
   }
 }

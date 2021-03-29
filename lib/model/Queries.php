@@ -13,11 +13,27 @@ class Queries extends ConnectionDB{
     parent::__construct();
   }
   
-  public function read() {
+  public function read_all() {
     $rows = [];
-    $sql = 'SELECT * FROM emails';
+    $sql = 'SELECT * FROM emails ORDER BY email_date DESC';
     $sentence = $this->connection->prepare($sql);
     $sentence->execute();
+  
+    while($row = $sentence->fetch(PDO::FETCH_ASSOC)){
+      array_push($rows, $row);
+    }
+
+    return $rows;
+  }
+
+  public function read_by_range($limit, $offset) {
+    $rows = [];
+    $sql = 'SELECT * FROM emails ORDER BY email_date DESC LIMIT :LIMI OFFSET :OFFS';
+    $sentence = $this->connection->prepare($sql);
+    $sentence->execute(array(
+      ':LIMI' => $limit,
+      ':OFFS' => $offset
+    ));
   
     while($row = $sentence->fetch(PDO::FETCH_ASSOC)){
       array_push($rows, $row);
