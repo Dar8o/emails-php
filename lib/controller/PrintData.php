@@ -32,7 +32,7 @@ class PrintData {
           <td>' . $email_data['text_plain'] . '</td>
           <td>
             <form action="./deleteEmailData.php" method="POST">
-              <input class="button" type="submit" value="delete" />
+              <input class="button-delete" type="submit" value="delete" />
               <input type="hidden" name="id" value="' . $email_data['id'] . '" />
             </form>
           </td>

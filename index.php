@@ -38,6 +38,10 @@ $print = new PrintData();
         </thead>
       </table>
 
+      <div class="button-box">
+        <button id="button-refresh" class="button-refresh" >Refresh</button>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -57,5 +61,6 @@ $print = new PrintData();
     </div>
   </main>
 
+  <script src="./public/js/script.js" type="module" ></script>
 </body>
 </html>
