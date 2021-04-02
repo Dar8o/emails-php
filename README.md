@@ -29,11 +29,3 @@ CREATE TABLE emails(id SERIAL PRIMARY KEY NOT NULL, email_from VARCHAR(200) NOT 
 ```
 
 With these settings, everything should be ready and working properly in production.
-
-ALTER TABLE emails ADD COLUMN create_time_holder TIMESTAMP without time zone NULL;
-
-UPDATE emails SET create_time_holder = email_date::TIMESTAMP;
-
-ALTER TABLE emails ALTER COLUMN email_date TYPE TIMESTAMP without time zone USING create_time_holder;
-
-ALTER TABLE emails DROP COLUMN create_time_holder;
