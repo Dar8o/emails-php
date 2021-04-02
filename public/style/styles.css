@@ -87,8 +87,12 @@ tbody tr:hover {
 
 .button-refresh {
   background-color: rgb(44, 44, 218);
-  border: solid 2px #fff;
+  border: solid 1px #000;
   width: 80px;
+}
+
+.button-refresh:hover {
+  background-color: rgb(15, 15, 161);
 }
 
 @media (max-width: 565px) {
