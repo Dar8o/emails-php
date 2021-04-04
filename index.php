@@ -5,7 +5,15 @@ require './lib/controller/PrintData.php';
 
 use lib\controller\PrintData;
 
-$print = new PrintData();
+isset($_GET['page']) 
+  ? $num_page = $_GET['page'] 
+  : $num_page = null;
+
+isset($_GET['rows']) 
+  ? $num_row = $_GET['rows'] 
+  : $num_row = null;
+
+$print = new PrintData($num_page, $num_row);
 
 ?>
 
@@ -38,9 +46,17 @@ $print = new PrintData();
         </thead>
       </table>
 
-      <div class="button-box">
+      <form method="GET" action="/" class="button-box">
+        <select name="rows">
+          
+          <?php $print->print_select_number_rows(); ?>
+
+        </select>
+
+        <input class="button-select" type="submit" value="Select" />
+
         <button id="button-refresh" class="button-refresh" >Refresh</button>
-      </div>
+      </form>
 
       <table>
         <thead>
@@ -59,6 +75,13 @@ $print = new PrintData();
         </tbody>
       </table>
     </div>
+
+    <div class="container-pagination">
+
+      <?php $print->print_pagination() ?>
+
+    </div>
+
   </main>
 
   <script src="./public/js/script.js" type="module" ></script>
