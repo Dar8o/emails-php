@@ -136,6 +136,10 @@ select {
   background-color: rgb(0, 78, 0);
 }
 
+.active {
+  background-color: #364043;
+}
+
 @media (max-width: 565px) {
   .container {
     width: 100%;

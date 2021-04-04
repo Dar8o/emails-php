@@ -16,12 +16,8 @@ class PrintData {
   function __construct($num_page, $num_row) {
     $this->query = new Queries();
     $this->total_rows = $this->query->read_all();
-    if($num_page !== null) {
-      $this->page = $num_page;
-    }
-    if($num_row !== null) {
-      $this->limit_row = $num_row;
-    }
+    if($num_page !== null) $this->page = $num_page;
+    if($num_row !== null) $this->limit_row = $num_row;
   }
 
   public function print_all() {
@@ -59,9 +55,15 @@ class PrintData {
     $rows = $this->limit_row;
 
     for($i = 1; $i <= $total_pages; $i++) {
-      print_r("
-      <a href='/?page=$i&rows=$rows'>$i</a>
-      ");
+      if($this->page == $i){
+        print_r("
+        <a class='active' href='/?page=$i&rows=$rows'>$i</a>
+        ");  
+      } else {
+        print_r("
+        <a href='/?page=$i&rows=$rows'>$i</a>
+        ");
+      }
     }
   }
 

@@ -4,9 +4,13 @@ export default function refresh() {
   document.addEventListener("click", (e) => {
     if(e.target === $buttonRefresh) { 
       e.preventDefault();
-      
-      let search = window.location.search;
-      window.location.href = `/${search}`;
+
+      let search = window.location.search,
+          searchSplit= search.split(''),
+          index = searchSplit.length - 1,
+          numberRow = searchSplit[index];
+
+      window.location.href = `/?rows=${numberRow}`;
     }
   })
 }
