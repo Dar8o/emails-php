@@ -5,15 +5,7 @@ require './lib/controller/PrintData.php';
 
 use lib\controller\PrintData;
 
-isset($_GET['page']) 
-  ? $num_page = $_GET['page'] 
-  : $num_page = null;
-
-isset($_GET['rows']) 
-  ? $num_row = $_GET['rows'] 
-  : $num_row = null;
-
-$print = new PrintData($num_page, $num_row);
+$print = new PrintData();
 
 ?>
 
@@ -23,7 +15,7 @@ $print = new PrintData($num_page, $num_row);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProtonSms</title>
+  <title>ProtonSMS</title>
   <link rel="stylesheet" href="./public/style/styles.css" />
 </head>
 
@@ -68,19 +60,13 @@ $print = new PrintData($num_page, $num_row);
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
 
-          <?php  $print->print_all(); ?>
+        <tbody id="tbody"></tbody>
 
-        </tbody>
       </table>
     </div>
 
-    <div class="container-pagination">
-
-      <?php $print->print_pagination() ?>
-
-    </div>
+    <div class="container-pagination" id="container-pagination"></div>
 
   </main>
 

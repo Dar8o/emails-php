@@ -1,3 +1,5 @@
+import getEmailsApi from "./getEmailsApi.js"; 
+
 export default function refresh() {
   const $buttonRefresh = document.getElementById("button-refresh");
 
@@ -5,16 +7,18 @@ export default function refresh() {
     if(e.target === $buttonRefresh) { 
       e.preventDefault();
 
-      if(!window.location.search){
-        window.location.href = '/';
-      } else{ 
-        let search = window.location.search,
-        searchSplit= search.split('='),
-        index = searchSplit.length - 1,
-        numberRow = searchSplit[index];
+      // if(!window.location.search){
+      //   window.location.href = '/';
+      // } else{ 
+      //   let search = window.location.search,
+      //   searchSplit= search.split('='),
+      //   index = searchSplit.length - 1,
+      //   numberRow = searchSplit[index];
         
-        window.location.href = `/?rows=${numberRow}`;
-      }
+      //   window.location.href = `/?rows=${numberRow}`;
+      // }
+
+      getEmailsApi();
     }
   })
 }
