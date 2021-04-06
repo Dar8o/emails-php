@@ -8,12 +8,12 @@ require './lib/model/Queries.php';
 use lib\model\Queries;
 
 class PrintData {
-  private $limit_row = 5;
+  private $limit_row = 10;
   private $page = 1;
   private $query;
   private $total_rows;
 
-  function __construct($num_page, $num_row) {
+  function __construct($num_page = 1, $num_row = 10) {
     $this->query = new Queries();
     $this->total_rows = $this->query->read_all();
     if($num_page !== null) $this->page = $num_page;
@@ -73,5 +73,32 @@ class PrintData {
       <option value="' . $i . '">' . $i . '</option>
       ');
     }
+  }
+
+  public function print_API() {
+    $email_array = [];
+
+    foreach($this->query->show_all() as $email_data) {
+      $emails = [];
+      
+      $original_date = date_create($email_data['email_date']);
+      $date_format = date_format($original_date, "d.m.y - H:i");
+
+      $subject = explode(' ', $email_data['email_subject']);
+      $extract_id = count($subject) - 1;
+      $id_in_subject = $subject[$extract_id];
+
+      $email_format = explode('@', $email_data['email_from']);
+      
+      $emails['id'] = $email_data['id'];
+      $emails['date'] = $date_format;
+      $emails['subject'] = $id_in_subject;
+      $emails['email'] = $email_format[0];
+      $emails['emailData'] = $email_data['text_plain'];
+
+      array_push($email_array, $emails); 
+    }
+
+    return $email_array;
   }
 }

@@ -5,12 +5,16 @@ export default function refresh() {
     if(e.target === $buttonRefresh) { 
       e.preventDefault();
 
-      let search = window.location.search,
-          searchSplit= search.split(''),
-          index = searchSplit.length - 1,
-          numberRow = searchSplit[index];
-
-      window.location.href = `/?rows=${numberRow}`;
+      if(!window.location.search){
+        window.location.href = '/';
+      } else{ 
+        let search = window.location.search,
+        searchSplit= search.split('='),
+        index = searchSplit.length - 1,
+        numberRow = searchSplit[index];
+        
+        window.location.href = `/?rows=${numberRow}`;
+      }
     }
   })
 }

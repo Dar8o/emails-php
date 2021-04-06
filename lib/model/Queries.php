@@ -12,6 +12,19 @@ class Queries extends ConnectionDB{
   function __construct() {
     parent::__construct();
   }
+
+  public function show_all() {
+    $rows = [];
+    $sql = 'SELECT * FROM emails ORDER BY email_date DESC';
+    $sentence = $this->connection->prepare($sql);
+    $sentence->execute(array());
+  
+    while($row = $sentence->fetch(PDO::FETCH_ASSOC)){
+      array_push($rows, $row);
+    }
+
+    return $rows;
+  }
   
   public function read_all() {
     $sql = 'SELECT * FROM emails';
@@ -20,7 +33,7 @@ class Queries extends ConnectionDB{
     $total_rows = $sentence->rowCount();
 
     return $total_rows;
-  }
+  }  
 
   public function read_by_range($limit, $offset) {
     $rows = [];
