@@ -2,15 +2,11 @@ export default function getEmailsApi() {
   const $tbody = document.getElementById("tbody"),
     $containerPagination = document.getElementById("container-pagination");
 
-  let search = window.location.search,
-    urlParams = new URLSearchParams(search),
-    numPage = 1,
-    limitRow = 10;
+  let numPage = 1,
+      limitRow = 10;
 
-  if (search) {
-    if (urlParams.has("page")) numPage = urlParams.get("page");
-    if (urlParams.has("rows")) limitRow = urlParams.get("rows");
-  }
+  if (sessionStorage.getItem("page")) numPage = sessionStorage.getItem("page");
+  if (sessionStorage.getItem("rows")) limitRow = sessionStorage.getItem("rows");
 
   fetch("./emailsApi.php")
     .then((res) => res.json())
@@ -47,14 +43,14 @@ export default function getEmailsApi() {
       let fragment = document.createDocumentFragment();
 
       for (let i = 1; i <= totalPages; i++) {
-        let $a = document.createElement("a");
+        let $button = document.createElement("button");
 
-        $a.textContent = i;
-        $a.setAttribute("href", `/?page=${i}&rows=${limitRow}`);
+        $button.textContent = i;
+        $button.classList.add("button-pagination");
 
-        if(numPage == i) $a.classList.add("active");
+        if(numPage == i) $button.classList.add("active");
 
-        fragment.appendChild($a);
+        fragment.appendChild($button);
       }
 
       $containerPagination.appendChild(fragment);

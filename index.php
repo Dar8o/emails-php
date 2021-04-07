@@ -38,17 +38,17 @@ $print = new PrintData();
         </thead>
       </table>
 
-      <form method="GET" action="/" class="button-box">
-        <select name="rows">
+      <div class="button-box">
+        <select id="rows">
           
           <?php $print->print_select_number_rows(); ?>
 
         </select>
 
-        <input class="button-select" type="submit" value="Select" />
+        <input id="button-select" class="button-select" type="submit" value="Select" />
 
         <button id="button-refresh" class="button-refresh" >Refresh</button>
-      </form>
+      </div>
 
       <table id="table">
         <thead>

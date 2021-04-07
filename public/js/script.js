@@ -1,7 +1,11 @@
-import refresh from "./refresh.js"
+import { selectRefresh } from "./refresh.js"
 import getEmailsApi from "./getEmailsApi.js"
+import paginationButtons from "./paginationButtons.js"
+import selectRows from "./selectRows.js"
 
 document.addEventListener("DOMContentLoaded", () => {
-  refresh()
+  selectRefresh()
   getEmailsApi()
+  paginationButtons()
+  selectRows()
 })

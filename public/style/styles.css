@@ -136,6 +136,15 @@ select {
   background-color: rgb(0, 78, 0);
 }
 
+.button-pagination {
+  background-color: #012B39;
+  transition: all 0.3s ease;
+}
+
+.button-pagination:hover {
+  background-color: #014055;
+}
+
 .active {
   background-color: #364043;
 }
