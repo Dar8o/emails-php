@@ -21,7 +21,7 @@ $print = new PrintData();
 
 <body>
 
-  <main>
+  <main id="main" >
     <div class="container">
       <table class="width-70">
         <thead>
@@ -50,7 +50,7 @@ $print = new PrintData();
         <button id="button-refresh" class="button-refresh" >Refresh</button>
       </form>
 
-      <table>
+      <table id="table">
         <thead>
           <tr>
             <th>Date & Time</th>
@@ -64,9 +64,14 @@ $print = new PrintData();
         <tbody id="tbody"></tbody>
 
       </table>
+
     </div>
 
     <div class="container-pagination" id="container-pagination"></div>
+    
+    <div class="loaded-box">
+      <img class="loaded" src="./public/asset/Spinner-1s-200px.svg" alt="loaded..." />
+    </div>
 
   </main>
 

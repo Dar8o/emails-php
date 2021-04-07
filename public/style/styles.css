@@ -140,6 +140,12 @@ select {
   background-color: #364043;
 }
 
+.loaded-box {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 565px) {
   .container {
     width: 100%;

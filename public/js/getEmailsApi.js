@@ -21,7 +21,6 @@ export default function getEmailsApi() {
         emailsArray = res.splice(offset, limitRow);
 
       emailsArray.forEach((el) => {
-        console.log(el);
         let $tr = document.createElement("tr");
 
         $tr.innerHTML = `
