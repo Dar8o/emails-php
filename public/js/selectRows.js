@@ -1,17 +1,12 @@
-import { refresh } from "./refresh.js"
+import { refresh } from "./refresh.js";
 
 export default function selectRows() {
-  const $select = document.getElementById("rows"),
-        $buttonSelect = document.getElementById("button-select");
+  const $select = document.getElementById("rows");
 
-  document.addEventListener("click", (e) => {
-    if(e.target === $buttonSelect) {
-      e.preventDefault();
+  $select.addEventListener("change", (e) => {
+    sessionStorage.setItem("page", 1);
+    sessionStorage.setItem("rows", $select.value);
 
-      sessionStorage.setItem("page", 1);
-      sessionStorage.setItem("rows", $select.value)
-
-      refresh();
-    }
-  })
+    refresh();
+  });
 }

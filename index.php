@@ -39,15 +39,13 @@ $print = new PrintData();
       </table>
 
       <div class="button-box">
+        <img id="button-refresh" class="img-refresh" src="./public/asset/reload-arrow-svgrepo-com.svg" />
+
         <select id="rows">
           
           <?php $print->print_select_number_rows(); ?>
 
-        </select>
-
-        <input id="button-select" class="button-select" type="submit" value="Select" />
-
-        <button id="button-refresh" class="button-refresh" >Refresh</button>
+        </select>       
       </div>
 
       <table id="table">
@@ -70,7 +68,7 @@ $print = new PrintData();
     <div class="container-pagination" id="container-pagination"></div>
     
     <div class="loaded-box">
-      <img class="loaded" src="./public/asset/Spinner-1s-200px.svg" alt="loaded..." />
+      <img class="loaded" src="./public/asset/svg-loaders/three-dots.svg" alt="loaded..." />
     </div>
 
   </main>
