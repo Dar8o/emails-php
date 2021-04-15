@@ -32,6 +32,10 @@ table {
   margin: 1em auto;
 }
 
+thead {
+  /* height: 1vh; */
+}
+
 th {
   border-bottom: 1px solid #364043;
   color: #E2B842;
@@ -75,6 +79,7 @@ a:hover {
 
 select {
   width: 50px;
+  height: 30px;
   background-color: #012B39;
   color: #fff;
 }
@@ -105,7 +110,7 @@ select {
 .button-box {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
+  margin-top: 5vh;
 }
 
 .button-delete {
@@ -149,9 +154,14 @@ select {
   width: 30px;
   margin: 0 1rem;
   cursor: pointer;
-  background-color: #fff;
-  border: solid 2px #fff;
   border-radius: 50%;
+}
+
+.th-delete {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 120px;
 }
 
 @media (max-width: 565px) {

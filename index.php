@@ -39,13 +39,13 @@ $print = new PrintData();
       </table>
 
       <div class="button-box">
-        <img id="button-refresh" class="img-refresh" src="./public/asset/reload-arrow-svgrepo-com.svg" />
-
         <select id="rows">
           
           <?php $print->print_select_number_rows(); ?>
 
-        </select>       
+        </select>  
+
+        
       </div>
 
       <table id="table">
@@ -55,7 +55,12 @@ $print = new PrintData();
             <th>Receiver ID</th>
             <th>Sender ID</th>
             <th>Message</th>
-            <th>Delete</th>
+            <th >
+              <div class="th-delete">
+                <p>Delete</p>
+                <img id="button-refresh" class="img-refresh" src="./public/asset/reload-svgrepo.svg" />
+              </div>
+            </th>
           </tr>
         </thead>
 
